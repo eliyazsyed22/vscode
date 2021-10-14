@@ -1,0 +1,30 @@
+apiVerasion: v1
+kind: Deployment
+metadata: 
+   name: azure-files-nginx-deployment
+   labels:
+     app: azure-file-nginx-app
+spec:
+  replicas: 4
+  selector:
+    matchlabels:
+      app: azure-file-nginx-app
+  templates:
+    metadata: 
+       labels:
+         app: azure-file-nginx-app
+    spec:
+      containers:
+        - name: azure-file-nginx-app
+          image: stacksimplify/kube-nginxapp1:1.0.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: my-azure-file-volume
+              mountPath: "/usr/share/nginx/html/app1"
+      volumes:
+        - name: my-azure-file-volume
+          persistentVolumeClaim:
+            claimName: my-azurefile-pvc
+            

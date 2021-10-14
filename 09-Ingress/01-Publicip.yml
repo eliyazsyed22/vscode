@@ -1,0 +1,7 @@
+az aks show --resource-group resourcegrp_1 --name mycluster_1 --query nodeResourceGroup -o tsv
+            MC_resourcegrp_1_mycluster_1_eastus
+            az network public-ip create --resource-group MC_resourcegrp_1_mycluster_1_eastus --name myAKSPublicIPForIngress --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
+
+            20.102.76.152 publicip
+            MC_resourcegrp_1_mycluster_1_eastus
+            52.149.227.196 newIp

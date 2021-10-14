@@ -1,0 +1,20 @@
+az aks get-credentials --name AKS_DEMO_cluster --resource-group AKS_DEMO
+
+user:AKSregistrydemo
+passwd:2Ajuoa1IAZd6c/yRfc+i289AZ4zh=Ltd
+passwd2:YrHr5CQBugxbp9VQfETCH8+F3IBlw0nJ
+
+
+export ACR_REGISTRY=AKSregistrydemo.azurecr.io
+export ACR_NAMESPACE=app1
+export ACR_IMAGE_NAME=kube-nginx-acr
+export ACR_IMAGE_TAG=v1
+echo $ACR_REGISTRY, $ACR_NAMESPACE, $ACR_IMAGE_NAME, $ACR_IMAGE_TAG
+
+az acr login -n AKSregistrydemo
+
+export ACR_REGISTRY=acrrepos.azurecr.io
+export ACR_NAMESPACE=app2
+export ACR_IMAGE_NAME=acr-app2
+export ACR_IMAGE_TAG=v1
+echo $ACR_REGISTRY, $ACR_NAMESPACE, $ACR_IMAGE_NAME, $ACR_IMAGE_TAG
