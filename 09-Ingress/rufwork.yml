@@ -20,3 +20,4 @@ export ACR_IMAGE_TAG=v1
 echo $ACR_REGISTRY, $ACR_NAMESPACE, $ACR_IMAGE_NAME, $ACR_IMAGE_TAG
 new commit check
 commit
+lets check working or not
